@@ -1,0 +1,12 @@
+crash1:
+i made changed to line 7 and line 8 to take 64 bites instead of 32 bites as expected. thus, causing a buffer overflow 
+
+crash2:
+on genanime.py on line 14 i added the instruction "0x01, (127), 0xaa" which caused crash2. 
+i stored the value 127 into the regs which has been allocated just 16 bytes. so it is out of bounce due to a size. 
+
+hang:
+0x09, (130), 0xaa  arg1 will have the value 130 which will get cast into char and overflow. 
+So the pc pointer is decremeted by 3 bytes and this will start from the same place that is 0x09. 
+This way the program will keep looping through this instructuion wothout exiting or breaking out of the loop.
+
